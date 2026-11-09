@@ -2,7 +2,7 @@
 
 Repbook is a gym tracker for **Jane** (Fraser's mum), used on her **iPhone 14 Plus**. The design was agreed with her over five rounds of clickable mock-ups. This brief records every decision, so the build can go straight from here to a working, installable app.
 
-**Goal for today:** a working app at `https://frasersuttie.github.io/repbook/`, added to Jane's iPhone home screen, with her real sessions loaded, a test workout done and a test backup saved.
+**Goal for today:** a working app at `https://frasersuttie.github.io/repbook/`, added to Jane's iPhone home screen, with a test workout done and a test backup saved. Jane will set up her own sessions afterwards (see §2, "First run").
 
 ---
 
@@ -45,7 +45,15 @@ Jane must **never lose her data**.
   - Validate the file, show a summary ("142 workouts, last on …"), and confirm with an in-app dialog (no `alert`/`confirm`) before replacing anything.
   - Keep the previous data as `preRestoreBackup` in storage.
 - **Backup nudge:** a gentle banner if she hasn't backed up for 14 days or more (and has data).
-- **Start with no fake history.** The mock-up's 12 weeks of sample data was for demo only. Load Jane's **real sessions and exercises** as the first-run defaults. **Ask Fraser for her list.** If it isn't available yet, use the placeholder lists in §9 and tell him.
+- **Start with no fake history.** The mock-up's 12 weeks of sample data was for demo only.
+- **First run (Jane sets up her own sessions):** her real exercise list isn't available, so she'll create it herself in the app. When storage is empty, show a friendly welcome screen ("Welcome to Repbook, Jane!") with two choices:
+  - **"Start with example sessions"** loads the §9 lists. Add the line: "You can rename, reorder or delete any of these in Settings."
+  - **"Start from scratch"** creates no sessions. The home screen then shows an empty state with a big **"Create your first session"** button that goes to Settings.
+  - The welcome screen only ever shows when storage is empty, never again after that.
+- Make setting up easy:
+  - Adding a session should take her straight to adding its exercises.
+  - Adding an exercise keeps the keyboard flow quick (name → type → Add, then the name box is ready for the next one).
+  - Make the session and exercise editing in Settings really clear, because she'll be doing it alone.
 
 Suggested shape:
 
@@ -170,7 +178,8 @@ There's a bottom tab bar with **Workout · Calendar · Progress · Settings**. A
   - check the progress charts render
   - rename and reorder an exercise
   - back up, restore, and get the same data back
-  - reload, and check the data persisted and wasn't reseeded
+  - first run: both paths work (example sessions, and from scratch → create a session → add exercises)
+  - reload, and check the data persisted, wasn't reseeded, and the welcome screen didn't come back
 - **Offline:** check it with the service worker (load once, go offline, reload).
 - **Deploy:** push to `main`, then enable GitHub Pages under Settings → Pages → Deploy from branch → `main` / root. Check `https://frasersuttie.github.io/repbook/` loads and the manifest and icons resolve.
 - **Hand-over on Jane's iPhone:**
@@ -179,7 +188,7 @@ There's a bottom tab bar with **Workout · Calendar · Progress · Settings**. A
   3. Do a test **Back up**, saving to iCloud Drive.
   4. Tell her: **never delete the icon or clear Safari website data without backing up first.**
 
-## 9. Placeholder exercises (use only if Fraser hasn't supplied her real list)
+## 9. Example sessions (offered on first run, all editable)
 
 - **Push:** Chest press, Shoulder press, Incline dumbbell press, Tricep pushdown, Lateral raise, Cable fly, Press-ups (reps), Treadmill walk (time).
 - **Upper body:** Lat pulldown, Seated row, Bicep curl, Face pull, Hammer curl, Reverse fly, Assisted pull-up, Plank (time).
