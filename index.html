@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Repbook</title>
+<meta name="description" content="Jane's gym tracker">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Repbook">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#FFF6FA">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="preload" href="fonts/nunito-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nunito-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app berry" id="app">
+  <main class="main" id="main"></main>
+  <nav class="tabs" id="tabs" aria-label="Main">
+    <span class="tab-pill" id="tabPill" aria-hidden="true"></span>
+    <button class="tab" data-act="tab" data-tab="log" type="button"><svg class="ic" width="24" height="24" aria-hidden="true"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg><span>Workout</span></button>
+    <button class="tab" data-act="tab" data-tab="cal" type="button"><svg class="ic" width="24" height="24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Calendar</span></button>
+    <button class="tab" data-act="tab" data-tab="progress" type="button"><svg class="ic" width="24" height="24" aria-hidden="true"><path d="M4 4v16h16M8 15l4-4 3 3 5-6"/></svg><span>Progress</span></button>
+    <button class="tab" data-act="tab" data-tab="settings" type="button"><svg class="ic" width="24" height="24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg><span>Settings</span></button>
+  </nav>
+  <div id="overlay"></div>
+  <div id="flash" class="flash" role="status" aria-live="polite"></div>
+  <input type="file" id="restoreFile" accept=".json,application/json" hidden>
+</div>
+<noscript><p style="padding:24px;font-family:system-ui">Repbook needs JavaScript switched on.</p></noscript>
+<script src="app.js"></script>
+</body>
+</html>
